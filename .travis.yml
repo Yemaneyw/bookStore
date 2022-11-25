@@ -2,11 +2,11 @@
 language: java
 
 before_install:
-  – chmod a+x gradlew
+  – chmod +x gradlew
 jdk:
   - openjdk8
 
-sudo: required
+sudo: false
 
 script:
   - ./gradlew clean build -i --continue
