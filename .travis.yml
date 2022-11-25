@@ -1,15 +1,16 @@
-  language: java
-  
-  install:
-   – chmod +x gradlew
-  jdk:
-    - openjdk8
+language: java
 
-  script:
-    - ./gradlew check
+before_install:
+ – chmod a+x gradlew
+jdk:
+ - openjdk8
 
+sudo: required
 
-  deploy:
-    provider: heroku
-    api_key: $HEROKU_TOKEN
-    app: "book-demo-store-yemaneyw"
+script:
+ - ./gradlew clean build -i --continue
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_TOKEN
+  app: "book-demo-store-yemaneyw"
